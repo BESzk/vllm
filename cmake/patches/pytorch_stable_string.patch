@@ -3,7 +3,7 @@ diff --git a/torch/csrc/stable/stableivalue_conversions.h b/torch/csrc/stable/st
 +++ b/torch/csrc/stable/stableivalue_conversions.h
 @@ -807 +807 @@
 -// Returns a new std::string; the string in val is deleted.
-+// Returns a std::string which owns its memory; the string in val is deleted.
++// Returns an owning std::string; the string in val is deleted (PyTorch 2.13 compatibility).
 @@ -819 +819 @@
 -    auto strptr = new std::string(data, length);
 +    const auto str = std::string(data, length);
